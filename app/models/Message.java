@@ -6,6 +6,7 @@ import play.db.jpa.Model;
 
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import java.util.Date;
 
 public class Message extends Model {
 
@@ -21,9 +22,19 @@ public class Message extends Model {
     @ManyToOne
     public Post parentPost;
 
+    @Required
+    public Date postedAt;
+
     public Message(User author, String content, Post parentPost) {
         this.author = author;
         this.content = content;
         this.parentPost = parentPost;
+        this.postedAt = new Date();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s - %s %s", author, parentPost.toString(), postedAt.toString());
+
     }
 }
