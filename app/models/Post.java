@@ -29,4 +29,11 @@ public class Post extends Model {
         this.messages = new ArrayList<>();
         this.messages.add(initialMessage);
     }
+
+    public Post addMessage(User author, String content) {
+        Message newMessage = new Message(author, content, this).save();
+        this.messages.add(newMessage);
+        this.save();
+        return this,
+    }
 }
