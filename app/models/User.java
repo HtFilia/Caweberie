@@ -2,6 +2,7 @@ package models;
 
 import play.data.validation.Email;
 import play.data.validation.Required;
+import play.db.jpa.Model;
 
 import javax.persistence.Entity;
 import java.nio.charset.StandardCharsets;
@@ -9,10 +10,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Random;
 
-import static play.db.jpa.GenericModel.find;
-
 @Entity
-public class User {
+public class User extends Model {
 
     /**
      * @brief The email of the user.
