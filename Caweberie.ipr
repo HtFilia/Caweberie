@@ -8,7 +8,7 @@
   </component>
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Caweberie.ipr/.idea/Caweberie.ipr.iml" filepath="$PROJECT_DIR$/Caweberie.ipr/.idea/Caweberie.ipr.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Caweberie.iml" filepath="$PROJECT_DIR$/Caweberie.iml" />
     </modules>
   </component>
   <component name="ProjectRootManager">
