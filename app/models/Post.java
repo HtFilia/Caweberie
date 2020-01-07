@@ -34,6 +34,6 @@ public class Post extends Model {
         Message newMessage = new Message(author, content, this).save();
         this.messages.add(newMessage);
         this.save();
-        return this,
+        return this;
     }
 }
