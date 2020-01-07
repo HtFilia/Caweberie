@@ -16,25 +16,28 @@ public class Post extends Model {
     public Subberry sub;
 
     @Required
+    @ManyToOne
+    public User author;
+
+    @Required
     public String title;
 
     @Required
-    @ManyToOne
-    public User author;
+    public String content;
 
     @Required
     public Date postedAt;
 
     @Required
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "parentPost", cascade = CascadeType.ALL)
     public List<Message> messages;
 
-    public Post(Subberry sub, String title, User author, Message initialMessage) {
+    public Post(Subberry sub, User author, String title, String content) {
         this.sub = sub;
-        this.title = title;
         this.author = author;
+        this.title = title;
+        this.content = content;
         this.messages = new ArrayList<>();
-        this.messages.add(initialMessage);
         this.postedAt = new Date();
     }
 

@@ -6,6 +6,16 @@
     </profile>
     <version value="1.0" />
   </component>
+  <component name="ProjectDictionaryState">
+    <dictionary name="htfil">
+      <words>
+        <w>boblennon</w>
+        <w>faut</w>
+        <w>numérique</w>
+        <w>révolution</w>
+      </words>
+    </dictionary>
+  </component>
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Caweberie.iml" filepath="$PROJECT_DIR$/Caweberie.iml" />

@@ -13,4 +13,13 @@ public class Application extends Controller {
         render();
     }
 
+    public static void showSub(Long id) {
+        Subberry sub = Subberry.findById(id);
+        render(sub);
+    }
+
+    public static void showPost(Long id) {
+        Post post = Post.findById(id);
+        render(post);
+    }
 }

@@ -36,8 +36,8 @@ public class Subberry extends Model {
         this.posts = new ArrayList<>();
     }
 
-    public Subberry createPost(User author, Message message) {
-        Post newPost = new Post(this, author, message).save();
+    public Subberry createPost(User author, String title, String content) {
+        Post newPost = new Post(this, author, title, content).save();
         this.posts.add(newPost);
         this.save();
         return this;
