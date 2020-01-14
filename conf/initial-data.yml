@@ -1,10 +1,10 @@
-# Test data
+# Demo data
 
 User(bob):
   email:          boblennon@gmail.com
   hash:           c847c13d2455ea44e5809bed73f84c9428ce661a25c7fafd24128294a0e0
   salt:           HO34CN9EAk
-  username:       BobLul
+  username:       BobLennon
   isAdmin:        true
 
 User(jeff):
@@ -20,6 +20,16 @@ Subberry(subFrance):
     - bob
     - jeff
 
+Subberry(subManga):
+  title:          Manga
+  users:
+    - jeff
+
+Subberry(subProgramming):
+  title:          Programming
+  users:
+    - bob
+
 Post(firstBobPostFrance):
   sub:            subFrance
   author:         bob
@@ -27,6 +37,17 @@ Post(firstBobPostFrance):
   content:        >
     Il faut lancer la révolution numérique.
   postedAt:       2013-06-12
+
+Post(secondBobPostFrance):
+  sub:          subFrance
+  author:       bob
+  title:        Microstructure
+  content:      >
+    J'ai subi 11.5 - 11 donc l'effective cost est la différence entre le prix de
+    transaction et le midpoint. La différence entre l'offre et le prix de trade est
+    le price improvement. 3e cout: le coût de réalisation réalisé. On n'utilise plus le
+    même benchmark mais le NBBO midpoint à 5 minutes.
+  postedAt:     2020-01-14
 
 Message(m1):
   author:         jeff

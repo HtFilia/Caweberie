@@ -135,4 +135,49 @@ public class BasicTest extends UnitTest {
         assertEquals(0, Post.count());
         assertEquals(0, Message.count());
     }
+
+    @Test
+    public void databaseTest() {
+        Fixtures.loadModels("data.yml");
+
+        // Count Things
+        assertEquals(2, User.count());
+        assertEquals(1, Subberry.count());
+        assertEquals(1, Post.count());
+        assertEquals(1, Message.count());
+
+        // Retrieve France's sub
+        Subberry franceSub = Subberry.find("byTitle", "France").first();
+        assertEquals(2, franceSub.users.size());
+
+        // Try to connect as users
+        assertNotNull(User.connect("boblennon@gmail.com", "boblennonMDP"));
+        assertNotNull(User.connect("jeff@gmail.com", "jeffMDP"));
+        assertNull(User.connect("boblennon@gmail.com", "badMDP"));
+        assertNull(User.connect("badMail", "boblennonMDP"));
+
+        // Find all of bob's posts
+        List<Post> bobPosts = Post.find("author.email", "boblennon@gmail.com").fetch();
+        assertEquals(1, bobPosts.size());
+
+        // Find all messages related to bob's posts
+        List<Message> bobMessages = Message.find("parentPost.author.email", "boblennon@gmail.com").fetch();
+        assertEquals(1, bobMessages.size());
+
+        // Find the most recent post
+        Post mostRecentPost = Post.find("order by postedAt desc").first();
+        assertNotNull(mostRecentPost);
+        assertEquals("Révolution", mostRecentPost.title);
+
+        // Check that this post has 1 message
+        assertEquals(1, mostRecentPost.messages.size());
+
+        // Get bob as a user
+        User bob = User.connect("boblennon@gmail.com", "boblennonMDP");
+
+        // Post a new message
+        mostRecentPost.addMessage(bob, "Hello guys");
+        assertEquals(2, mostRecentPost.messages.size());
+        assertEquals(2, Message.count());
+    }
 }

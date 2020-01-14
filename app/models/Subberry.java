@@ -44,4 +44,11 @@ public class Subberry extends Model {
         this.save();
         return this;
     }
+
+    public Post getCarouselPost(int lastNumber) {
+        if (posts.size() - 1 - lastNumber >= posts.size()) {
+            throw new IllegalArgumentException("Should be lower than # of posts");
+        }
+        return posts.get(posts.size() - 1 - lastNumber);
+    }
 }

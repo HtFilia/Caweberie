@@ -1,3 +1,21 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
+#{if mostRecentPosts.size()}
+
+<div class="container-fluid">
+    <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview">
+            #{list items:mostRecentPosts, as:'recentPost'}
+            #{display post:recentPost, as:'teaser'/}
+            #{/list}
+        </div>
+    </div>
+</div>
+
+#{/if}
+
+<script src="@{'/public/javascripts/index.js'}"
+        data-firstSubName="${franceSub.title}"
+        data-secondSubName="${mangaSub.title}"
+        data-thirdSubName="${programmingSub.title}"></script>

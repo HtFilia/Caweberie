@@ -1,0 +1,13 @@
+.jumbotron {
+    background-image: url("../images/background_night.svg");
+    background-size: 100%;
+    border-radius: 0px;
+}
+
+.jumbotron * {
+    color: #9fcdff;
+}
+
+.post-preview > a {
+
+}

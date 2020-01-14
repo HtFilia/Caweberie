@@ -9,8 +9,20 @@ import models.*;
 
 public class Application extends Controller {
 
+    @Before
+    public static void addDefaults() {
+        renderArgs.put("blogTitle", Play.configuration.getProperty("blog.title"));
+        renderArgs.put("blogBaseline", Play.configuration.getProperty("blog.baseline"));
+    }
+
     public static void index() {
-        render();
+        Subberry franceSub = Subberry.find("byTitle", "France").first();
+        Subberry mangaSub = Subberry.find("byTitle", "Manga").first();
+        Subberry programmingSub = Subberry.find("byTitle", "Programming").first();
+        //TODO: biggest subs
+        //List<Post> mostRecentPosts = Post.find("order by postedAt desc").from(1).fetch(2);
+        List<Post> mostRecentPosts = Post.findAll();
+        render(franceSub, mangaSub, programmingSub, mostRecentPosts);
     }
 
     public static void showSub(Long id) {

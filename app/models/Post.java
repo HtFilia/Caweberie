@@ -1,5 +1,6 @@
 package models;
 
+import play.data.validation.MaxSize;
 import play.data.validation.Required;
 import play.db.jpa.Model;
 
@@ -22,11 +23,15 @@ public class Post extends Model {
     @Required
     public String title;
 
+    @Lob
     @Required
+    @MaxSize(10000)
     public String content;
 
     @Required
     public Date postedAt;
+
+    public String imgLink;
 
     @Required
     @OneToMany(mappedBy = "parentPost", cascade = CascadeType.ALL)
@@ -39,6 +44,17 @@ public class Post extends Model {
         this.content = content;
         this.messages = new ArrayList<>();
         this.postedAt = new Date();
+        this.imgLink = "public/images/defaultPost.jpg";
+    }
+
+    public Post(Subberry sub, User author, String title, String content, String imgLink) {
+        this.sub = sub;
+        this.author = author;
+        this.title = title;
+        this.content = content;
+        this.messages = new ArrayList<>();
+        this.postedAt = new Date();
+        this.imgLink = imgLink;
     }
 
     public Post addMessage(User author, String content) {
@@ -46,6 +62,10 @@ public class Post extends Model {
         this.messages.add(newMessage);
         this.save();
         return this;
+    }
+
+    public String previewContent() {
+        return content.substring(0, 10).concat("...");
     }
 
     @Override
