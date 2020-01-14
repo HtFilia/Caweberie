@@ -48,6 +48,18 @@ public class Post extends Model {
         return this;
     }
 
+    public Post deleteMessage(int i) {
+        this.messages.remove(i);
+        this.save();
+        return this;
+    }
+
+    public Post modifyMessage(int i, String content) {
+        this.messages.get(i).content = content;
+        this.save();
+        return this;
+    }
+
     @Override
     public String toString() {
         return title;
