@@ -4,16 +4,14 @@ import play.data.validation.MaxSize;
 import play.data.validation.Required;
 import play.db.jpa.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 public class Message extends Model {
 
     @Required
-    public User author;
+    public String authorUsername;
 
     @Lob
     @Required
@@ -28,7 +26,7 @@ public class Message extends Model {
     public Date postedAt;
 
     public Message(User author, String content, Post parentPost) {
-        this.author = author;
+        this.authorUsername = author.username;
         this.content = content;
         this.parentPost = parentPost;
         this.postedAt = new Date();
@@ -36,7 +34,7 @@ public class Message extends Model {
 
     @Override
     public String toString() {
-        return String.format("%s - %s %s", author, parentPost.toString(), postedAt.toString());
+        return String.format("%s - %s %s", authorUsername, parentPost.toString(), postedAt.toString());
 
     }
 }

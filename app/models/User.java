@@ -4,7 +4,10 @@ import play.data.validation.Email;
 import play.data.validation.Required;
 import play.db.jpa.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -14,26 +17,26 @@ import java.util.Random;
 public class User extends Model {
 
     /**
-     * @brief The email of the user.
+     * The email of the user.
      */
-    @Email
     @Required
+    @Email
     public String email;
 
     /**
-     * @brief The hash of the user's password.
+     * The hash of the user's password.
      */
     @Required
     public String hash;
 
     /**
-     * @brief The random salt generated at User's creation.
+     * The random salt generated at User's creation.
      */
     @Required
     public String salt;
 
     /**
-     * @brief The username displayed to others.
+     * The username displayed to others.
      */
     @Required
     public String username;
@@ -41,7 +44,7 @@ public class User extends Model {
     //TODO: Ajouter les forums modérateurs et participants
 
     /**
-     * @brief Boolean that specifies if a username is an admin or regular user.
+     * Boolean that specifies if a username is an admin or regular user.
      */
     public boolean isAdmin;
 
@@ -117,6 +120,7 @@ public class User extends Model {
             e.printStackTrace();
         }
         // We keep only the first 60 characters
+        assert generatedHash != null;
         return generatedHash.substring(0, 60);
     }
 
