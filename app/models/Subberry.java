@@ -13,10 +13,15 @@ public class Subberry extends Model {
     @Required
     public String title;
 
-    @ManyToMany(cascade=CascadeType.PERSIST)
+    // Il faudra changer la génération des tables SQL à travers d'autres classes
+    /*
+    @ManyToMany(cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
+    @JoinColumn(name="email")
     public List<User> moderators;
+    */
 
-    @ManyToMany(cascade=CascadeType.PERSIST)
+    @ManyToMany(cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
+    @JoinColumn(name="username")
     public List<User> users;
 
     @OneToMany(mappedBy="sub", cascade=CascadeType.ALL)
@@ -24,28 +29,19 @@ public class Subberry extends Model {
 
     public Subberry (User creator, String title) {
         this.title = title;
+        /*
         this.moderators = new ArrayList<>();
         this.moderators.add(creator);
+         */
         this.users = new ArrayList<>();
         this.users.add(creator);
         this.posts = new ArrayList<>();
     }
 
-    public Subberry createPost(User author, String title, String content) {
+    public Subberry addPost(User author, String title, String content) {
         Post newPost = new Post(this, author, title, content).save();
         this.posts.add(newPost);
         this.save();
-        return this;
-    }
-
-    public Subberry deletePost(int i) {
-        this.posts.remove(i);
-        return this;
-    }
-
-    public Subberry modifyPost(int i, String title, String content) {
-        this.posts.get(i).content = content;
-        this.posts.get(i).title = title;
         return this;
     }
 }
