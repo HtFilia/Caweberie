@@ -25,9 +25,9 @@ public class Subberry extends Model {
     public Subberry (User creator, String title) {
         this.title = title;
         this.moderators = new ArrayList<>();
-        //this.moderators.add(creator);
+        this.moderators.add(creator);
         this.users = new ArrayList<>();
-        //this.users.add(creator);
+        this.users.add(creator);
         this.posts = new ArrayList<>();
     }
 
@@ -35,6 +35,17 @@ public class Subberry extends Model {
         Post newPost = new Post(this, author, title, content).save();
         this.posts.add(newPost);
         this.save();
+        return this;
+    }
+
+    public Subberry deletePost(int i) {
+        this.posts.remove(i);
+        return this;
+    }
+
+    public Subberry modifyPost(int i, String title, String content) {
+        this.posts.get(i).content = content;
+        this.posts.get(i).title = title;
         return this;
     }
 }
