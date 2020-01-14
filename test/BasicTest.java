@@ -5,6 +5,9 @@ import models.*;
 
 public class BasicTest extends UnitTest {
 
+    @Before
+    public void setup() { Fixtures.deleteDatabase(); }
+
     @Test
     public void createAndRetrieveUser() {
         // Create a new user and save it

@@ -1,7 +1,32 @@
-# you describe your data using the YAML notation here
-# and then load them using Fixtures.load("data.yml")
+# Test data
 
-# User(bob):
-#   email: bob@gmail.com
-#   password: secret
-#   fullname: Bob
+User(bob):
+  email:          boblennon@gmail.com
+  hash:           c847c13d2455ea44e5809bed73f84c9428ce661a25c7fafd24128294a0e0
+  salt:           HO34CN9EAk
+  username:       BobLul
+  isAdmin:        true
+
+User(jeff):
+  email:          jeff@gmail.com
+  hash:           6fd345b7b65fa0aaa37b41a60b6a51aa0664b50125b0ce0f19d6923a0b5c
+  salt:           PfJ1pGp73H
+  username:       MyNameIsJeff
+  isAdmin:        false
+
+Subbery(subFrance):
+  title:          France
+
+Post(firstBobPostFrance):
+  sub:            subFrance
+  author:         bob
+  title:          Révolution
+  content:        >
+    Il faut lancer la révolution numérique.
+
+Comment(c1):
+  author:         jeff
+  content:        >
+    Laissons plutôt le marché s'auto-réguler.
+  parentPost:     firstBobPostFrance
+  postedAt:       2013-06-14
