@@ -64,6 +64,18 @@ public class Post extends Model {
         return this;
     }
 
+    public Post deleteMessage(int id) {
+        this.messages.remove(id);
+        this.save();
+        return this;
+    }
+
+    public Post modifyMessage(int id, String content) {
+        this.messages.get(id).content = content;
+        this.save();
+        return this;
+    }
+
     public String previewContent() {
         return content.substring(0, 10).concat("...");
     }
