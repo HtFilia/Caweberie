@@ -1,3 +1,24 @@
+body {
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif
+}
+
+h1, h2 {
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 80px;
+}
+
+.subheading {
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.1;
+    display: block;
+    margin: 10px 0 0;
+}
+
 .jumbotron {
     background-image: url("../images/background_night.svg");
     background-size: 100%;
@@ -5,9 +26,25 @@
 }
 
 .jumbotron * {
-    color: #9fcdff;
+    color: whitesmoke;
 }
 
-.post-preview > a {
+.post-preview > .post.teaser > a {
+    color: #212529;
+    text-decoration: none;
+}
 
+.post-preview > .post.teaser > a:focus, .post-preview > .post.teaser > a:hover {
+    color: #0085a1;
+}
+
+.post-preview > .post.teaser > a > .post-title {
+    font-size: 36px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.post-preview > .post.teaser > a > .post-content-preview {
+    font-weight: 300;
+    margin: 0 0 10px;
 }

@@ -20,8 +20,7 @@ public class Application extends Controller {
         Subberry mangaSub = Subberry.find("byTitle", "Manga").first();
         Subberry programmingSub = Subberry.find("byTitle", "Programming").first();
         //TODO: biggest subs
-        //List<Post> mostRecentPosts = Post.find("order by postedAt desc").from(1).fetch(2);
-        List<Post> mostRecentPosts = Post.findAll();
+        List<Post> mostRecentPosts = Post.find("order by postedAt desc").from(0).fetch(3);
         render(franceSub, mangaSub, programmingSub, mostRecentPosts);
     }
 
