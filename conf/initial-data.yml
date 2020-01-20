@@ -19,16 +19,19 @@ Subberry(subFrance):
   users:
     - bob
     - jeff
+  nbUsers:        2
 
 Subberry(subManga):
   title:          Manga
   users:
     - jeff
+  nbUsers:        1
 
 Subberry(subProgramming):
   title:          Programming
   users:
     - bob
+  nbUsers:        1
 
 Post(firstBobPostFrance):
   sub:            subFrance
@@ -37,6 +40,7 @@ Post(firstBobPostFrance):
   content:        >
     Il faut lancer la révolution numérique.
   postedAt:       2013-06-12
+  imgLink:        https://www.syti.net/Images/LiberteGuidantLePeuple4.jpg
 
 Post(secondBobPostFrance):
   sub:          subFrance

@@ -1,0 +1,24 @@
+<div class="post ${_as == 'teaser' ? 'teaser' : ''} ${_as == 'full' ? 'full' : ''}">
+
+#{if _as != 'full'}
+<a href="@{Application.showPost(_post.id)}">
+#{/if}
+    <h2 class="post-title">${_post.title}</h2>
+#{if _as != 'full'}
+    <h5 class="post-content-preview">${_post.previewContent()}</h5>
+#{/if}
+#{else}
+    <h5 class="post-content">${_post.content}</h5>
+#{/else}
+</a>
+    <div class="post-meta">
+        <h6 class="post-data">Posté par ${_post.author.username}
+            le ${_post.postedAt.format('dd-MM-yyyy')} dans <a
+                    href="@{Application.showSub(_post.sub.id)}">${_post.sub.title}</a>
+        </h6>
+        <h4 class="post-message">
+        ${_post.messages.size() ?: 'no'} message${_post.messages.size().pluralize()}
+        </h4>
+    </div>
+    <hr>
+</div>

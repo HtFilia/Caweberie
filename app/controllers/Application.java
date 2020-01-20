@@ -15,22 +15,25 @@ public class Application extends Controller {
         renderArgs.put("blogBaseline", Play.configuration.getProperty("blog.baseline"));
     }
 
+    public static List<Subberry> getHighestSubberries() {
+        return Subberry.find("order by nbUsers desc").from(0).fetch(3);
+    }
+
     public static void index() {
-        Subberry franceSub = Subberry.find("byTitle", "France").first();
-        Subberry mangaSub = Subberry.find("byTitle", "Manga").first();
-        Subberry programmingSub = Subberry.find("byTitle", "Programming").first();
-        //TODO: biggest subs
+        List<Subberry> highestSubberries = getHighestSubberries();
         List<Post> mostRecentPosts = Post.find("order by postedAt desc").from(0).fetch(3);
-        render(franceSub, mangaSub, programmingSub, mostRecentPosts);
+        render(highestSubberries, mostRecentPosts);
     }
 
     public static void showSub(Long id) {
+        List<Subberry> highestSubberries = getHighestSubberries();
         Subberry sub = Subberry.findById(id);
-        render(sub);
+        render(highestSubberries, sub);
     }
 
     public static void showPost(Long id) {
+        List<Subberry> highestSubberries = getHighestSubberries();
         Post post = Post.findById(id);
-        render(post);
+        render(highestSubberries, post);
     }
 }

@@ -77,7 +77,19 @@ public class Post extends Model {
     }
 
     public String previewContent() {
-        return content.substring(0, 10).concat("...");
+        String[] parts = content.split(" ");
+        System.out.println("parts.length : " + parts.length);
+        String preview = "";
+        int idx = 0;
+        while (preview.length() < 60 && idx < parts.length) {
+            System.out.println("idx : " + idx);
+            preview = preview.concat(" " + parts[idx]);
+            idx++;
+        }
+        if (idx == parts.length) {
+            return preview;
+        }
+        return preview.concat(" ...");
     }
 
     @Override

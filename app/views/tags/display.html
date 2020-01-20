@@ -1,9 +1,0 @@
-<div class="post ${_as == 'teaser' ? 'teaser' : ''}">
-    <a href="#">
-        <h2 class="post-title">${_post.title}</h2>
-        <h5 class="post-content-preview">${_post.previewContent()}</h5>
-    </a>
-    <h6 class="post-meta">Posté par ${_post.author.username}
-        le ${_post.postedAt.format('dd-MM-yyyy')} dans <a href="#">${_post.sub.title}</a></h6>
-    <hr>
-</div>

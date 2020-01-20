@@ -1,19 +1,7 @@
 #{extends 'main.html' /}
-#{set title:'Home' /}
+#{set title:post.title + ' - Cawberry' /}
 
-#{if mostRecentPosts.size()}
-
-<div class="container-fluid">
-    <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="post-preview">
-            #{list items:mostRecentPosts, as:'recentPost'}
-            #{displayPost post:recentPost, as:'teaser'/}
-            #{/list}
-        </div>
-    </div>
-</div>
-
-#{/if}
+#{displayPost post:post, as:'full'/}
 
 <script src="@{'/public/javascripts/index.js'}"
         data-firstHighestSubTitle="${highestSubberries.get(0).title}"

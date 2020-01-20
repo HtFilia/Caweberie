@@ -27,6 +27,9 @@ public class Subberry extends Model {
     @OneToMany(mappedBy="sub", cascade=CascadeType.ALL)
     public List<Post> posts;
 
+    @Column(name="nbusers")
+    public int nbUsers;
+
     public Subberry (User creator, String title) {
         this.title = title;
         /*
@@ -35,7 +38,13 @@ public class Subberry extends Model {
          */
         this.users = new ArrayList<>();
         this.users.add(creator);
+        this.nbUsers = 1;
         this.posts = new ArrayList<>();
+    }
+
+    private Post templatePost() {
+        return new Post(this, new User("email", "bruhpwd", "bruh"), "testtemplate",
+                "bruh template");
     }
 
     public Subberry addPost(User author, String title, String content) {
@@ -46,9 +55,24 @@ public class Subberry extends Model {
     }
 
     public Post getCarouselPost(int lastNumber) {
-        if (posts.size() - 1 - lastNumber >= posts.size()) {
-            throw new IllegalArgumentException("Should be lower than # of posts");
+        if (posts.size() - 1 - lastNumber >= posts.size() ||
+                posts.size() - 1 - lastNumber < 0) {
+            return templatePost();
         }
         return posts.get(posts.size() - 1 - lastNumber);
+    }
+
+    public Subberry subscribe(User subscriber) {
+        this.users.add(subscriber);
+        this.nbUsers++;
+        this.save();
+        return this;
+    }
+
+    public Subberry unsubscribe(User subscriber) {
+        this.users.remove(subscriber);
+        this.nbUsers--;
+        this.save();
+        return this;
     }
 }

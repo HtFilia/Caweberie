@@ -13,10 +13,11 @@ GET     /public/                                staticDir:public
 
 
 #Subberry
-GET     /application/showsub/{id}               Application.showsub({id})
+GET     /application/showsub/{id}               Application.showSub
 
 #Post
-GET     /application/showpost/{id}              Application.showpost({id})
+GET     /application/showpost/{id}              Application.showPost
+
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
