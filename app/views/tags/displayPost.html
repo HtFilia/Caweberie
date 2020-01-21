@@ -12,9 +12,9 @@
 #{/else}
 </a>
     <div class="post-meta">
-        <h6 class="post-data">Posté par ${_post.author.username}
-            le ${_post.postedAt.format('dd-MM-yyyy')} dans <a
-                    href="@{Application.showSub(_post.sub.id)}">${_post.sub.title}</a>
+        <h6 class="post-data"><i class="fa fa-pencil"></i>${_post.author.username}
+            <i class="fa fa-calendar"></i>${_post.postedAt.format('dd-MM-yyyy')}<br>
+            <a href="@{Application.showSub(_post.sub.id)}">${_post.sub.title}</a>
         </h6>
         <h4 class="post-message">
         ${_post.messages.size() ?: 'no'} message${_post.messages.size().pluralize()}

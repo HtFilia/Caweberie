@@ -1,7 +1,24 @@
 #{extends 'main.html' /}
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/showPost.css'}">
 #{set title:post.title + ' - Cawberry' /}
 
 #{displayPost post:post, as:'full'/}
+
+<div class="post create_new_comment input_comment">
+#{form @Application.addPost(post.id)}
+<p>
+    <label for="content">Title: </label><br>
+    <textarea name="content" id="content"></textarea>
+</p>
+<p>
+    <label for="content">Your message: </label><br>
+    <textarea name="content" id="content"></textarea>
+</p>
+<p>
+    <input type="submit" value="Submit your comment" />
+</p>
+#{/form}
+</div>
 
 <script src="@{'/public/javascripts/index.js'}"
         data-firstHighestSubTitle="${highestSubberries.get(0).title}"
