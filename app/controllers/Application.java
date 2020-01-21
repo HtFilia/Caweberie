@@ -8,6 +8,7 @@ import java.util.*;
 
 import models.*;
 
+@With(Security.class)
 public class Application extends Controller {
     @Before
     public static void addDefaults() {

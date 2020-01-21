@@ -12,11 +12,11 @@ $(function() {
     let navbarNav = document.getElementById("navbar-nav")
     let firstLink = navbarNav.children.item(0)
     $(firstLink).children('a')[0].innerHTML = firstSubTitle
-    $(firstLink).children('a')[0].setAttribute('href', "/application/showsub/" + firstSubId)
+    $(firstLink).children('a')[0].setAttribute('href', "/sub/" + firstSubId)
     let secondLink = navbarNav.children.item(1)
     $(secondLink).children('a')[0].innerHTML = secondSubTitle
-    $(secondLink).children('a')[0].setAttribute('href', '/application/showsub/' + secondSubId)
+    $(secondLink).children('a')[0].setAttribute('href', '/sub/' + secondSubId)
     let thirdLink = navbarNav.children.item(2)
     $(thirdLink).children('a')[0].innerHTML = thirdSubTitle
-    $(thirdLink).children('a')[0].setAttribute('href', '/application/showsub/' + thirdSubId)
+    $(thirdLink).children('a')[0].setAttribute('href', '/sub/' + thirdSubId)
 });

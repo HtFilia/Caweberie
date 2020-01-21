@@ -2,6 +2,9 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
+# Secure module
+*       /                                       module:secure
+
 # Home page
 GET     /                                       Application.index
 
@@ -13,10 +16,10 @@ GET     /public/                                staticDir:public
 
 
 #Subberry
-GET     /application/showsub/{id}               Application.showSub
+GET     /sub/{id}               Application.showSub
 
 #Post
-GET     /application/showpost/{id}              Application.showPost
+GET     /post/{id}              Application.showPost
 
 
 # Catch all
