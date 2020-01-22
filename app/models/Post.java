@@ -57,7 +57,8 @@ public class Post extends Model {
         this.imgLink = imgLink;
     }
 
-    public Post addMessage(User author, String content) {
+    public Post addMessage(String authorName, String content) {
+        User author = User.find("byUsername", authorName).first();
         Message newMessage = new Message(author, content, this).save();
         this.messages.add(newMessage);
         this.save();

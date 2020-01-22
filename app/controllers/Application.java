@@ -49,11 +49,17 @@ public class Application extends Controller {
         render(highestSubberries, username, post);
     }
 
-    public static void addPost(Long id, String title, String content) {
+    public static void addPost(Long id, String authorName, String title, String content) {
         Subberry subberry = Subberry.findById(id);
-        User user = User.find("byUsername", request.user).first();
+        User user = User.find("byUsername", authorName).first();
         System.out.println(user);
         subberry.addPost(user, title, content);
         showPost(id);
+    }
+
+    public static void addMessage(Long postId, String author, String content) {
+        Post post = Post.findById(postId);
+        post.addMessage(author, content);
+        showPost(postId);
     }
 }
