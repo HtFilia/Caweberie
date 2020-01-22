@@ -10,10 +10,10 @@ import models.*;
 
 @With(Security.class)
 public class Application extends Controller {
+
     @Before
     public static void addDefaults() {
-        renderArgs.put("blogTitle", Play.configuration.getProperty("blog.title"));
-        renderArgs.put("blogBaseline", Play.configuration.getProperty("blog.baseline"));
+        flash.put("url", request.path);
     }
 
     public static boolean isConnected() {
@@ -61,5 +61,11 @@ public class Application extends Controller {
         Post post = Post.findById(postId);
         post.addMessage(author, content);
         showPost(postId);
+    }
+
+    public static void addSub(String title) {
+        User currentUser = User.find("byEmail", session.get("username")).first();
+        Subberry newSub = new Subberry(currentUser, title).save();
+        showPost(newSub.id);
     }
 }

@@ -1,6 +1,7 @@
 package controllers;
 
 import models.*;
+import play.Play;
 
 public class Security extends Secure.Security {
 
@@ -8,4 +9,19 @@ public class Security extends Secure.Security {
         return User.connect(username, password) != null;
     }
 
+    static void onAuthenticated() {
+        redirectToOriginalUrl();
+    }
+
+    static void onDisconnected() {
+        redirectToOriginalUrl();
+    }
+
+    static void redirectToOriginalUrl() {
+        String url = flash.get("url");
+        if (url == null) {
+            url = Play.ctxPath + "/";
+        }
+        redirect(url);
+    }
 }
