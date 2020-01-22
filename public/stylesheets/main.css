@@ -1,3 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+
 body {
     font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif
 }
@@ -51,6 +54,10 @@ h1 {
 .post-preview > .post.teaser > a > .post-content-preview {
     font-weight: 300;
     margin: 0 0 10px;
+}
+
+.post-data {
+    color: #888888;
 }
 
 .carousel {

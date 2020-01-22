@@ -24,8 +24,12 @@ $(function() {
     $(thirdLink).children('a')[0].setAttribute('href', '/sub/' + thirdSubId)
     if (username === "null") {
         loggedInMenu.style.display = "none"
+        document.getElementsByClassName("input_comment")[0].style.display = "none";
+        document.getElementsByClassName("not_logged_in")[0].style.display = "";
     } else {
         loggedInMenu.children.item(0).children.item(0).innerHTML = username
         loggedOutMenu.style.display = "none"
+        document.getElementsByClassName("input_comment")[0].style.display = "";
+        document.getElementsByClassName("not_logged_in")[0].style.display = "none";
     }
 });

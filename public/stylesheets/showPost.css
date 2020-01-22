@@ -51,6 +51,10 @@ body {
     border-bottom: 2px solid #e6e6e6;
 }
 
+.not_logged_in {
+    color: #FF6347;
+}
+
 
 .post-data {
     color: #888888;
