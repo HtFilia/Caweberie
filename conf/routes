@@ -6,7 +6,7 @@
 *       /                                       module:secure
 
 # Home page
-GET     /                                       Application.index
+GET     /                                      Application.index
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
@@ -16,10 +16,11 @@ GET     /public/                                staticDir:public
 
 
 #Subberry
-GET     /sub/{id}               Application.showSub
+GET     /sub/create                             Application.createSub
+GET     /sub/{id}                               Application.showSub
 
 #Post
-GET     /post/{id}              Application.showPost
+GET     /post/{id}                              Application.showPost
 
 
 # Catch all

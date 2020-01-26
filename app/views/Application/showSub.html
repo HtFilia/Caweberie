@@ -2,9 +2,9 @@
 #{set title:sub.title /}
 
 <div class="container-fluid">
-    <div class="container">
-        <div class="row">
-            <div class="col-8 d-block mx-auto">
+    <div class="col-lg-8 col-md-10 mx-auto">
+            #{if sub.posts.size() >= 3}
+                <div class="col-8 d-block mx-auto">
                 <div id="carouselLastPosts" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#carouselLastPosts" data-slide-to="0" class="active"></li>
@@ -53,10 +53,20 @@
                     </a>
                 </div>
             </div>
+            #{/if}
+            #{if sub.posts.size() > 0}
+                #{list items:sub.previewPosts(), as:'subPost'}
+                    #{displayPost post:subPost, as:'teaser' /}
+                #{/list}
+            #{/if}
+        <div class="clearfix">
+        #{if true}
+            <a class="btn btn-primary float-left" href="@{Application.previousPage()}">← Première page</a>
+        #{/if}
+            <a class="btn btn-primary float-right" href="@{Application.nextPage()}">Older posts →</a>
         </div>
     </div>
 </div>
-
 
 <script src="@{'/public/javascripts/index.js'}"
         data-firstHighestSubTitle="${highestSubberries.get(0).title}"

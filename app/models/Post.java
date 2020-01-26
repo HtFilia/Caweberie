@@ -77,6 +77,14 @@ public class Post extends Model {
         return this;
     }
 
+    public List<Post> previousPosts() {
+        return Post.find("postedAt < ?1 order by postedAt desc").from(0).fetch(4);
+    }
+
+    public List<Post> nextPosts() {
+        return Post.find("postedAt > ?1 order by postedAt asc").from(0).fetch(4);
+    }
+
     public String previewContent() {
         String[] parts = content.split(" ");
         String preview = "";

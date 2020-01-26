@@ -62,11 +62,18 @@ public class Subberry extends Model {
         return posts.get(posts.size() - 1 - lastNumber);
     }
 
-    public Subberry subscribe(User subscriber) {
-        this.users.add(subscriber);
-        this.nbUsers++;
-        this.save();
+    public Subberry subscribe(String subscriberName) {
+        User newUser = User.find("byUsername", subscriberName).first();
+        if (newUser != null) {
+            this.users.add(newUser);
+            this.nbUsers++;
+            this.save();
+        }
         return this;
+    }
+
+    public List<Post> previewPosts() {
+        return posts.subList(Math.max(0, posts.size() - 4), posts.size());
     }
 
     public Subberry unsubscribe(User subscriber) {

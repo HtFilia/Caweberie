@@ -1,0 +1,21 @@
+#{extends 'main.html' /}
+#{set title:'Création d\'un berry' /}
+
+#{form @Application.addSub(username)}
+    <p>
+        <label for="title">Titre :</label>
+        <textarea name="title" id="title">${params.title}</textarea>
+    </p>
+    <p>
+        <input type="submit" value="Créer un Subberry !" />
+    </p>
+#{/form}
+
+<script src="@{'/public/javascripts/index.js'}"
+        data-firstHighestSubTitle="${highestSubberries.get(0).title}"
+        data-firstHighestSubId="${highestSubberries.get(0).id}"
+        data-secondHighestSubTitle="${highestSubberries.get(1).title}"
+        data-secondHighestSubId="${highestSubberries.get(1).id}"
+        data-thirdHighestSubTitle="${highestSubberries.get(2).title}"
+        data-thirdHighestSubId="${highestSubberries.get(2).id}"
+        data-username="${username}"></script>

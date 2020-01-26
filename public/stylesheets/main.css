@@ -36,22 +36,22 @@ h1 {
     color: whitesmoke;
 }
 
-.post-preview > .post.teaser > a {
+.post.teaser > a {
     color: #212529;
     text-decoration: none;
 }
 
-.post-preview > .post.teaser > a:focus, .post-preview > .post.teaser > a:hover {
+.post.teaser > a:focus, .post.teaser > a:hover {
     color: #0085a1;
 }
 
-.post-preview > .post.teaser > a > .post-title {
+.post.teaser > a > .post-title {
     font-size: 36px;
     margin-top: 30px;
     margin-bottom: 10px;
 }
 
-.post-preview > .post.teaser > a > .post-content-preview {
+.post.teaser > a > .post-content-preview {
     font-weight: 300;
     margin: 0 0 10px;
 }
@@ -71,4 +71,18 @@ h1 {
 
 .post.full > .post-title {
     text-align: center;
+}
+
+.btn-primary {
+    background-color: #0085a1;
+    border-color: #0085a1;
+}
+
+.btn {
+    font-size: 14px;
+    font-weight: 800;
+    padding: 15px 25px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 0;
 }

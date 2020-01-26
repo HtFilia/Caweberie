@@ -1,17 +1,24 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-#{if mostRecentPosts.size()}
+#{if toPrintPosts.size()}
 
 <div class="container-fluid">
     <div class="col-lg-8 col-md-10 mx-auto">
         <div class="post-preview">
-            #{list items:mostRecentPosts, as:'recentPost'}
+            #{list items:toPrintPosts, as:'recentPost'}
             #{displayPost post:recentPost, as:'teaser'/}
             #{/list}
         </div>
+        <div class="clearfix">
+            #{if true}
+                <a class="btn btn-primary float-left" href="#">← Previous posts</a>
+            #{/if}
+            <a class="btn btn-primary float-right" href="#">Older posts →</a>
+        </div>
     </div>
 </div>
+<hr>
 
 #{/if}
 
