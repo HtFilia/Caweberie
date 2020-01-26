@@ -4,6 +4,7 @@ import org.h2.engine.Session;
 import play.*;
 import play.data.validation.Required;
 import play.mvc.*;
+import play.modules.paginate.ValuePaginator;
 
 import java.util.*;
 
@@ -36,8 +37,10 @@ public class Application extends Controller {
     public static void index() {
         String username = getCurrentUsername();
         List<Subberry> highestSubberries = getHighestSubberries();
-        List<Post> toPrintPosts = Post.find("order by postedAt desc").from(0).fetch(4);
-        render(highestSubberries, username, toPrintPosts);
+        List<Post> toPrintPosts = Post.find("order by postedAt desc").from(0).fetch(20);
+        ValuePaginator paginator = new ValuePaginator(toPrintPosts);
+        paginator.setPageSize(4);
+        render(highestSubberries, username, toPrintPosts, paginator);
     }
 
     public static void previousPage() {
