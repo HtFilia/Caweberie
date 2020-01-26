@@ -1,3 +1,8 @@
 # You can specialize this file for each language.
 # For example, for French create a messages.fr file
 #
+
+signup.email = Email : 
+secure.password = Mot de passe :
+signup.fullname = Pseudo :
+signup.signup = S'enregistrer

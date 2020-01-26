@@ -90,4 +90,60 @@ public class Application extends Controller {
         Subberry newSub = new Subberry(currentUser, title).save();
         showSub(newSub.id);
     }
+
+    public static void signup() {
+        render();
+    }
+
+    public static void createUser(@Required String email,
+                                  @Required String password,
+                                  @Required String repeatedPassword,
+                                  @Required String fullname) throws Throwable {
+        // Check if username already taken
+        User newUser = User.find("byEmail", email).first();
+        if (newUser != null) {
+            flash.keep("/");
+            flash.error("Cet email est déjà utilisé.");
+            params.flash();
+            signup();
+        }
+
+        // Check if there is a password
+        if (password.equals("")) {
+            flash.keep("url");
+            flash.error("Il faut rentrer un mot de passe");
+            params.flash();
+            signup();
+        }
+
+        // Check if both passwords match
+        if (!password.equals(repeatedPassword)) {
+            flash.keep("url");
+            flash.error("Les mots de passe ne correspondent pas.");
+            params.flash();
+            signup();
+        }
+
+        // Check if there is a username
+        if (fullname.equals("")) {
+            flash.keep("url");
+            flash.error("Il faut rentrer un pseudo.");
+            params.flash();
+            signup();
+        }
+
+        // Save new user to DB
+        new User(email, password, fullname).save();
+
+        // Good message to user then redirect to previous page
+        redirectToOriginalUrl();
+    }
+
+    static void redirectToOriginalUrl() {
+        String url = flash.get("url");
+        if (url == null) {
+            url = Play.ctxPath + "/";
+        }
+        redirect(url);
+    }
 }

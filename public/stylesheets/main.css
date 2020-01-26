@@ -56,6 +56,11 @@ h1 {
     margin: 0 0 10px;
 }
 
+.post-data > a {
+    color: #0f6674;
+    text-decoration: #0f6674;
+}
+
 .post-data {
     color: #888888;
 }
