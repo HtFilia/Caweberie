@@ -1,14 +1,20 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
+<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/play-pagination.css'}">
+
 #{if toPrintPosts.size()}
 
 <div class="container-fluid">
     <div class="col-lg-8 col-md-10 mx-auto">
         <div class="post-preview">
-            #{list items:toPrintPosts, as:'recentPost'}
-            #{displayPost post:recentPost, as:'teaser'/}
-            #{/list}
+*{            #{list items:toPrintPosts, as:'recentPost'}}*
+*{            #{displayPost post:recentPost, as:'teaser'/}}*
+*{            #{/list}*
+                #{paginate.list items:paginator, as:'r'}
+                    #{displayPost post:r, as:'teaser'/}
+                #{/paginate.list}
+                #{paginate.controls items:paginator /}
         </div>
         <div class="clearfix">
             #{if true}
