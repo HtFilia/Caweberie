@@ -29,9 +29,10 @@
 </div>
 
 <div class="container">
-#{list items:post.messages, as:'message'}
-#{displayMessages message:message /}
-#{/list}
+    #{paginate.list items:paginatorMessages, as:'message'}
+        #{displayMessage message:message /}
+    #{/paginate.list}
+    #{paginate.controls items:paginatorMessages /}
 </div>
 
 

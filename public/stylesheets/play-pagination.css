@@ -54,7 +54,7 @@ ul.pagination {
 }
 
 .pagination a:link, .pagination a:visited {
-	color: #0033CC;
+	color: #000000;
 	display : block;
 	float: left;
 	padding: 3px 6px;
