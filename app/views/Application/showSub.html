@@ -55,16 +55,14 @@
             </div>
             #{/if}
             #{if sub.posts.size() > 0}
-                #{list items:sub.previewPosts(), as:'subPost'}
-                    #{displayPost post:subPost, as:'teaser' /}
-                #{/list}
+            *{#{list items:sub.previewPosts(), as:'subPost'}}*
+                    *{#{displayPost post:subPost, as:'teaser' /}}*
+                *{#{/list}*
+                #{paginate.list items:paginator, as:'r'}
+                    #{displayPost post:r, as:'teaser'/}
+                #{/paginate.list}
+                #{paginate.controls items:paginator /}
             #{/if}
-        <div class="clearfix">
-        #{if true}
-            <a class="btn btn-primary float-left" href="@{Application.previousPage()}">← Première page</a>
-        #{/if}
-            <a class="btn btn-primary float-right" href="@{Application.nextPage()}">Older posts →</a>
-        </div>
     </div>
 </div>
 

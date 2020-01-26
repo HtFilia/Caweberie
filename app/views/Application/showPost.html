@@ -28,6 +28,13 @@
     You must be logged in to be able to comment this post
 </div>
 
+<div class="container">
+#{list items:post.messages, as:'message'}
+#{displayMessages message:message /}
+#{/list}
+</div>
+
+
 <script src="@{'/public/javascripts/index.js'}"
         data-firstHighestSubTitle="${highestSubberries.get(0).title}"
         data-firstHighestSubId="${highestSubberries.get(0).id}"

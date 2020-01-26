@@ -1,4 +1,4 @@
-# based on http: //woork.blogspot.com /2008/03/perfect-pagination-style-using-css.html
+/* # based on http: //woork.blogspot.com /2008/03/perfect-pagination-style-using-css.html */
 
 div.pagination-container {
 	margin-bottom: 10px;
@@ -6,20 +6,28 @@ div.pagination-container {
 }
 
 ul.pagination {
+	margin-left: 80px;
+	margin-right: 80px;
 	border: 0;
-	margin: 0;
-	padding: 0;
+	padding: 5px 0;
 	float: left;
+	text-align: center;
 }
 
 .pagination li {
-	border: 0;
-	margin: 0;
 	padding: 0;
 	list-style: none;
 	border: solid 1px #1E1E1E;
 	float: left;
-	margin-right : 2px;
+	margin: 0 2px 0 0;
+	display: inline;
+}
+
+.pagination a  {
+	display: inline-block;
+	margin-left: 5px;
+	padding: 5px 10px;
+	text-decoration: none;
 }
 
 .pagination .previous-off a,
@@ -32,11 +40,11 @@ ul.pagination {
 
 .pagination .next a, .pagination .previous a, .pagination .first a, .pagination .last a {
 	font-weight: bold;
-	color: #00000;
+	color: #000000;
 }
 
 .pagination .active {
-	color: #00000;
+	color: #000000;
 	background-color: #DEDEDE;
 	font-weight : bold;
 }

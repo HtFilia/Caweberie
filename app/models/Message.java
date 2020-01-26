@@ -11,7 +11,7 @@ import java.util.Date;
 public class Message extends Model {
 
     @Required
-    public String authorUsername;
+    public String author;
 
     @Lob
     @Required
@@ -26,7 +26,7 @@ public class Message extends Model {
     public Date postedAt;
 
     public Message(User author, String content, Post parentPost) {
-        this.authorUsername = author.username;
+        this.author = author.username;
         this.content = content;
         this.parentPost = parentPost;
         this.postedAt = new Date();
@@ -34,7 +34,7 @@ public class Message extends Model {
 
     @Override
     public String toString() {
-        return String.format("%s - %s %s", authorUsername, parentPost.toString(), postedAt.toString());
+        return String.format("%s - %s %s", author, parentPost.toString(), postedAt.toString());
 
     }
 }

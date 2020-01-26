@@ -37,18 +37,10 @@ public class Application extends Controller {
     public static void index() {
         String username = getCurrentUsername();
         List<Subberry> highestSubberries = getHighestSubberries();
-        List<Post> toPrintPosts = Post.find("order by postedAt desc").from(0).fetch(20);
+        List<Post> toPrintPosts = Post.find("order by postedAt desc").from(0).fetch();
         ValuePaginator paginator = new ValuePaginator(toPrintPosts);
         paginator.setPageSize(4);
         render(highestSubberries, username, toPrintPosts, paginator);
-    }
-
-    public static void previousPage() {
-        //TODO
-    }
-
-    public static void nextPage() {
-        //TODO
     }
 
     public static void showPosts(List<Post> toPrintPosts) {
@@ -61,7 +53,8 @@ public class Application extends Controller {
         String username = getCurrentUsername();
         List<Subberry> highestSubberries = getHighestSubberries();
         Subberry sub = Subberry.findById(id);
-        render(highestSubberries, username, sub);
+        ValuePaginator paginator = new ValuePaginator(sub.posts);
+        render(highestSubberries, username, sub, paginator);
     }
 
     public static void showPost(Long id) {
