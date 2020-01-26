@@ -1,0 +1,15 @@
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/showPost.css'}">
+<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/play-pagination.css'}">
+
+<div>
+    <h5 class="message-content">
+        ${_message.content}
+    </h5>
+
+    <div class="message-meta">
+        <h6 class="message-data"><i class="fa fa-pencil"></i>${_message.author}
+            <i class="fa fa-calendar"></i>${_message.postedAt.format('dd-MM-yyyy')}<br>
+        </h6>
+    </div>
+    <br>
+</div>

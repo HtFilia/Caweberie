@@ -78,12 +78,18 @@ h1 {
     border-color: #0085a1;
 }
 
+btn-secondary {
+    background-color: #0033FF;
+    border-color: #0033FF;
+}
+
 .btn-off {
     background-color: #4e555b;
     border-color: #4e555b;
 }
 
 .btn {
+    color: #ffffff;
     font-size: 14px;
     font-weight: 800;
     padding: 15px 25px;

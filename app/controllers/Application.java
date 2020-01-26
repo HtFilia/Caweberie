@@ -61,7 +61,9 @@ public class Application extends Controller {
         String username = getCurrentUsername();
         List<Subberry> highestSubberries = getHighestSubberries();
         Post post = Post.findById(id);
-        render(highestSubberries, username, post);
+        ValuePaginator paginatorMessages = new ValuePaginator(post.messages);
+        paginatorMessages.setPageSize(10);
+        render(highestSubberries, username, post, paginatorMessages);
     }
 
     public static void createSub() {

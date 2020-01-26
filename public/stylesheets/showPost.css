@@ -27,6 +27,13 @@ body {
     margin: 0 auto;
     padding: 10px;
 }
+
+.message {
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
 .post .create_new_comment {
     width: 100%;
     padding: 20px 0;
@@ -57,6 +64,10 @@ body {
 
 
 .post-data {
+    color: #888888;
+}
+
+.message-data {
     color: #888888;
 }
 
