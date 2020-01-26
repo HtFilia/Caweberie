@@ -92,6 +92,9 @@ public class Application extends Controller {
     }
 
     public static void signup() {
+        if (isConnected()) {
+            index();
+        }
         render();
     }
 
