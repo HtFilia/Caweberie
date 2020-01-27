@@ -1,0 +1,19 @@
+#{extends 'main.html' /}
+#{set title:'All subs' /}
+
+<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/play-pagination.css'}">
+
+#{paginate.list items:paginatorSub, as:'r'}
+    #{displaySub sub:r, as:'sub'/}
+#{/paginate.list}
+#{paginate.controls items:paginatorSub /}
+
+
+<script src="@{'/public/javascripts/index.js'}"
+        data-firstHighestSubTitle="${highestSubberries.get(0).title}"
+        data-firstHighestSubId="${highestSubberries.get(0).id}"
+        data-secondHighestSubTitle="${highestSubberries.get(1).title}"
+        data-secondHighestSubId="${highestSubberries.get(1).id}"
+        data-thirdHighestSubTitle="${highestSubberries.get(2).title}"
+        data-thirdHighestSubId="${highestSubberries.get(2).id}"
+        data-username="${username}"></script>

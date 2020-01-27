@@ -36,17 +36,24 @@ h1 {
     color: whitesmoke;
 }
 
-.post.teaser > a {
+.post.teaser > a, .sub.teaser > a {
     color: #212529;
     text-decoration: none;
 }
 
-.post.teaser > a:focus, .post.teaser > a:hover {
+.post.teaser > a:focus, .post.teaser > a:hover, .sub.teaser > a:focus, .sub.teaser > a:hover {
     color: #0085a1;
 }
 
 .post.teaser > a > .post-title {
     font-size: 36px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.sub.teaser > a > .sub-title {
+    margin-left: 30px;
+    font-size: 20px;
     margin-top: 30px;
     margin-bottom: 10px;
 }
@@ -59,6 +66,7 @@ h1 {
 .post-data {
     color: #888888;
 }
+
 
 .carousel {
     width:640px;

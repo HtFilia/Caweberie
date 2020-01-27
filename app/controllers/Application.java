@@ -43,6 +43,15 @@ public class Application extends Controller {
         render(highestSubberries, username, toPrintPosts, paginator);
     }
 
+    public static void showAllSubs() {
+        String username = getCurrentUsername();
+        List<Subberry> highestSubberries = getHighestSubberries();
+        ValuePaginator paginatorSub = new ValuePaginator(Subberry.find("order by nbUsers desc").from(0).fetch());
+        paginatorSub.setPageSize(10);
+        render(paginatorSub, username, highestSubberries);
+    }
+
+
     public static void showPosts(List<Post> toPrintPosts) {
         String username = getCurrentUsername();
         List<Subberry> highestSubberries = getHighestSubberries();
