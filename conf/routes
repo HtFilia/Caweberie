@@ -5,6 +5,10 @@
 # Secure module
 *       /                                       module:secure
 
+# Admin and CRUD
+GET     /admin/?                                Admin.index
+*       /admin                                  module:crud
+
 # Home page
 GET     /                                      Application.index
 
