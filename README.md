@@ -9,13 +9,21 @@ Afin de lancer l'application web, il est nécessaire d'avoir la version **1.5.x*
 Afin d'installer toutes les dépendances, il faudra lancer la commande 
 > play dependencies .
 
-au niveau de la racine du projet. Si certaines dépendances ne sont pas disponibles, il faudra les télécharger au niveau de play puis ajouter les *.jar* en dépendance du projet.
+au niveau de la racine du projet. Si le module pagination n'est pas disponible, il faudra rajouter son *.jar* en dépendance du projet.
 Nous utilisons IntelliJ pour développer le projet. Si vous souhaitez l'utiliser aussi, il faudra lancer la commande 
 > play idealize .
 
 au niveau de la racine du projet après avoir rajouté les dépendances.
  
+# Comptes Utilisateurs
 
+La création de compte étant parfois buggé, nous peuplons une multitude de compte utilisateurs dans notre base de données au chargement de l'application.
+Vous pouvez donc utiliser les deux comptes suivants pour tester les différentes fonctionnalités : 
+
+* **Compte Administrateur** : boblennon@gmail.com / boblennonMDP
+* **Compte Normal** : jeff@gmail.com / jeffMDP 
+
+Les mots de passes étant sauvegardés avec un hash et un sel dans la base de donnés il aurait été compliqué de se connecter sans ces logs.
 ## Lancer le projet sous environnement DEV
 
 Il est possible de lancer le projet sous environnement DEV afin de rapidement vérifier certaines fonctionnalités, modifier le code Java en temps réel etc..
