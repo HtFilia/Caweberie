@@ -111,8 +111,8 @@ public class BasicTest extends UnitTest {
         assertNotNull(bobPost);
 
         // Post two messages
-        bobPost.addMessage(jeff, "Nice post");
-        bobPost.addMessage(tom, "Insane");
+        bobPost.addMessage(jeff.username, "Nice post");
+        bobPost.addMessage(tom.username, "Insane");
 
         // Count instances
         assertEquals(3, User.count());
@@ -125,7 +125,7 @@ public class BasicTest extends UnitTest {
 
         // Navigate to comments
         assertEquals(2, Message.count());
-        assertEquals("MyNameJeff", bobPost.messages.get(0).authorUsername);
+        assertEquals("MyNameJeff", bobPost.messages.get(0).author);
 
         // Delete the post
         bobPost.delete();
@@ -176,7 +176,7 @@ public class BasicTest extends UnitTest {
         User bob = User.connect("boblennon@gmail.com", "boblennonMDP");
 
         // Post a new message
-        mostRecentPost.addMessage(bob, "Hello guys");
+        mostRecentPost.addMessage(bob.username, "Hello guys");
         assertEquals(2, mostRecentPost.messages.size());
         assertEquals(2, Message.count());
     }
