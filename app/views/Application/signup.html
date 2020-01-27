@@ -1,0 +1,45 @@
+#{extends 'Secure/layout.html' /}
+
+<div id="signup">
+
+#{form @createUser()}
+
+    #{if flash.error}
+        <p class="error">
+        ${messages.get(flash.error)}
+        </p>
+    #{/if}
+    #{if flash.success}
+        <p class="success">
+        ${messages.get(flash.success)}
+        </p>
+    #{/if}
+
+    <p id="username-field">
+        <label for="email">&{'signup.email'}</label>
+        <input type="text" name="email" id="email" value="${flash.email}" />
+    </p>
+    <p id="password-field">
+        <label for="password">&{'secure.password'}</label>
+        <input type="password" name="password" id="password" value="" />
+    </p>
+    <p id="repeat-password-field">
+        <label for="repeat-password">Répéter : </label>
+        <input type="password" name="repeatedPassword" id="repeat-password" value="" />
+    </p>
+    <p id="fullname-field">
+        <label for="fullname">&{'signup.fullname'}</label>
+        <input type="text" name="fullname" id="fullname" value="${flash.fullname}"/>
+    </p>
+    <p id="remember-field">
+        <input type="checkbox" name="remember" id="remember" value="${flash.remember}" />
+        <label for="remember">&{'secure.remember'}</label>
+    </p>
+    <p id="signup-field">
+        <input type="submit" id="signup-button" value="&{'signup.signup'}" />
+    </p>
+#{/form}
+    <footer class="signup-message">
+        <p>Already have an accout? <a href="@{Secure.login()}">Log in</a> now!</p>
+    </footer>
+</div>

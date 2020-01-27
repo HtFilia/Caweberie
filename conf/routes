@@ -14,6 +14,9 @@ GET     /favicon.ico                            404
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
 
+# Sign up
+GET     /signup                                 Application.signup
+POST    /signup                                 Application.createUser
 
 #Subberry
 GET     /sub/create                             Application.createSub
